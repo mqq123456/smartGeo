@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+   <head>
+       <meta charset="utf-8">
+   </head>
+   <body style="height: 100%; margin: 0px">
+       <div id="container" style="height: 100%;"></div>
+       <script src="echarts.min.js"></script>
+       <script type="text/javascript">
+           var dom = document.getElementById("container");
+           var myChart = echarts.init(dom);
+           var app = {};
+           option = null;
+           option = {
+               tooltip : {
+                   trigger: 'item',
+                   formatter: "{a} <br/>{b} : {c} ({d}%)"
+               },
+               series : [
+                         {
+                         name: '消费占比',
+                         type: 'pie',
+                         radius : '70%',
+                         center: ['50%', '50%'],
+                         data:[
+                               {value:23.2, name:'30元以下'},
+                               {value:24.3, name:'30-50元'},
+                               {value:10.1, name:'50-80元'},
+                               {value:8.3, name:'80-100元'},
+                               {value:8.1, name:'100-150元'},
+                               {value:6.5, name:'150-200元'},
+                               {value:3.2, name:'200-500元'},
+                               {value:2.6, name:'500元以上'}
+                               ],
+                         itemStyle: {
+                         emphasis: {
+                         shadowBlur: 10,
+                         shadowOffsetX: 0,
+                         shadowColor: 'rgba(0, 0, 0, 0.5)'
+                         }
+                         }
+                         }
+                         ]
+           };
+       ;
+       if (option && typeof option === "object") {
+           myChart.setOption(option, true);
+       }
+       </script>
+   </body>
+</html>

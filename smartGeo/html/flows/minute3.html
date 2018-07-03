@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+<head lang="en">
+    <meta charset="UTF-8">
+    <script src="echarts.min.js"></script>
+</head>
+<body style="height: 100%; margin: 0">
+<div id="onOrOutPeople" style="width:100%;height:100%"></div>
+</body>
+<script type="text/javascript">
+	
+	var dom = document.getElementById("onOrOutPeople");
+var myChart = echarts.init(dom);
+var app = {};
+option = null;
+option = {
+    tooltip : {
+    trigger: 'axis'
+    },
+    calculable : true,
+    xAxis : [
+             {
+             type : 'category',
+             data : ['8:00','8:05','8:10','8:15','8:20','8:25','8:30','8:35','8:40','8:45','8:50','8:55','9:00','9:05','9:10','9:15','9:20','9:25','9:30']
+             }
+             ],
+    yAxis : [
+             {
+             type : 'value'
+             }
+             ],
+    series : [
+              {
+              name:'流量',
+              type:'line',
+              itemStyle: {
+                normal: {
+                  color: '#EEEE00'
+                }
+              },
+              data:[20,12,25,34,23,12,17,18,17,19,22,17,17,12,19,12,18,10,20]
+              }
+              ]
+};
+;
+if (option && typeof option === "object") {
+    myChart.setOption(option, true);
+}
+
+</script>
+</html>

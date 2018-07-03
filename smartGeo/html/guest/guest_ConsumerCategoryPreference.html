@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+   <head>
+       <meta charset="utf-8">
+   </head>
+   <body style="height: 100%; margin: 0px">
+       <div id="container" style="height: 100%;"></div>
+       <script src="echarts.min.js"></script>
+       <script type="text/javascript">
+var dom = document.getElementById("container");
+var myChart = echarts.init(dom);
+var app = {};
+option = null;
+option = {
+    tooltip : {
+        trigger: 'item',
+        formatter: "{a} <br/>{b} : {c} ({d}%)"
+    },
+    series : [
+              {
+              name: '类别',
+              type: 'pie',
+              radius : '70%',
+              center: ['50%', '50%'],
+              data:[
+                    {value:33.2, name:'美食'},
+                    {value:24.3, name:'服装'},
+                    {value:20.1, name:'交通'},
+                    {value:12.3, name:'旅游'},
+                    {value:10.1, name:'其他'}
+                    ],
+              itemStyle: {
+              emphasis: {
+              shadowBlur: 10,
+              shadowOffsetX: 0,
+              shadowColor: 'rgba(0, 0, 0, 0.5)'
+              }
+              }
+              }
+              ]
+};
+;
+if (option && typeof option === "object") {
+    myChart.setOption(option, true);
+}
+       </script>
+   </body>
+</html>

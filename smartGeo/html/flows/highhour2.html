@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+<head lang="en">
+    <meta charset="UTF-8">
+    <script src="echarts.min.js"></script>
+</head>
+<body style="height: 100%; margin: 0">
+<div id="onOrOutPeople" style="width:100%;height:100%"></div>
+</body>
+<script type="text/javascript">
+var dom = document.getElementById("onOrOutPeople");
+var myChart = echarts.init(dom);
+var app = {};
+option = null;
+option = {
+    tooltip : {
+        trigger: 'axis'
+    },
+    calculable : true,
+    xAxis : [
+        {
+            type : 'category',
+            boundaryGap: false,
+            data : ['6:00','7:00','8:00','9:00','10:00','11:00','12:00','13:00','14:00','15:00','16:00','17:00','18:00','19:00','20:00','21:00','22:00','23:00']
+        }
+    ],
+    yAxis : [
+        {
+            type : 'value'
+        }
+    ],
+    visualMap: {
+        show: false,
+        dimension: 0,
+        pieces: [{
+            lte: 1,
+            color: 'green'
+        }, {
+            gt: 1,
+            lte: 4,
+            color: 'red'
+        }, {
+            gt: 4,
+            lte: 5,
+            color: 'green'
+        }, {
+            gt: 5,
+            lte: 7,
+            color: 'red'
+        },{
+            gt: 7,
+            lte: 11,
+            color: 'green'
+        },{
+            gt: 11,
+            lte: 14,
+            color: 'red'
+        }, {
+            gt: 14,
+            lte: 17,
+            color: 'green'
+        }]
+    },
+    series : [
+        {
+            name:'流量',
+            type:'line',
+            // itemStyle: {
+            //     normal: {
+            //       color: 'rgb(210, 0, 237)',
+            //       borderColor: 'rgb(210, 0, 237)',
+            //       borderWidth: 1
+            //     }
+            // },
+            data:[100,300,500,900,400,300,800,400,300,300,200,300,500,800,800,400,100,50],
+             markArea: {
+                data: [ [{
+                    name: '早高峰时段',
+                    xAxis: '7:00'
+                }, {
+                    xAxis: '10:00'
+                }], [{
+                    name: '午高峰时段',
+                    xAxis: '11:00'
+                }, {
+                    xAxis: '13:00'
+                }],[{
+                    name: '晚高峰时段',
+                    xAxis: '17:00'
+                }, {
+                    xAxis: '20:00'
+                }] ]
+            }
+        }
+    ]
+};
+;
+if (option && typeof option === "object") {
+    myChart.setOption(option, true);
+}
+
+
+</script>
+</html>

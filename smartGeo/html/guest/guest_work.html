@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+   <head>
+       <meta charset="utf-8">
+   </head>
+   <body style="height: 100%; margin: 0px">
+       <div id="container" style="height: 100%;"></div>
+       <script src="echarts.min.js"></script>
+       <script type="text/javascript">
+var dom = document.getElementById("container");
+var myChart = echarts.init(dom);
+var app = {};
+option = null;
+option = {
+    tooltip : {
+        trigger: 'axis'
+    },
+    legend: {
+        data:['']
+    },
+    calculable : true,
+    xAxis : [
+        {
+            type : 'category',
+            data : ['soho','融科','阿里','绿地','方恒']
+        }
+    ],
+    yAxis : [
+        {
+            type : 'value'
+        }
+    ],
+    series : [
+        {
+            name:'日均流量',
+            type:'bar',
+            data:[4500, 2500, 500,1000,500],
+              itemStyle: {
+              normal: {
+              color: '#00BFFF'
+              }
+              }
+        }
+    ]
+};
+;
+if (option && typeof option === "object") {
+    myChart.setOption(option, true);
+}
+       </script>
+   </body>
+</html>

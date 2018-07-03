@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+<head lang="en">
+    <meta charset="UTF-8">
+    <script src="echarts.min.js"></script>
+</head>
+<body style="height: 100%; margin: 0">
+       <div id="container" style="height: 100%"></div>
+       <script type="text/javascript">
+var dom = document.getElementById("container");
+var myChart = echarts.init(dom);
+var app = {};
+option = null;
+option = {
+    tooltip : {
+        trigger: 'item',
+        formatter: "{a} <br/>{b} : {c} ({d}%)"
+    },
+    series : [
+        {
+            name: '商户评分',
+            type: 'pie',
+            radius : '70%',
+            center: ['50%', '50%'],
+            data:[
+                {value:7.5, name:'新荟城'},
+                {value:3.3, name:'合生麒麟新天地'},
+                {value:8.1, name:'凯德MALL(望京店)'},
+                {value:5.3, name:'望京国际商业中心'},
+                {value:6.6, name:'新世界百货'},
+                {value:8.5, name:'方恒国际购物中心'},
+                {value:3.4, name:'六佰本商业中心'}
+            ],
+            itemStyle: {
+                emphasis: {
+                    shadowBlur: 10,
+                    shadowOffsetX: 0,
+                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                }
+            }
+        }
+    ]
+};
+;
+if (option && typeof option === "object") {
+    myChart.setOption(option, true);
+}
+       </script>
+   </body>
+</html>
